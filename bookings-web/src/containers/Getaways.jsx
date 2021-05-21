@@ -9,7 +9,11 @@ const Getaways = () => {
     getPlaces().then(setPlaces);
   }, []);
 
-  return <PlaceList places={places} />;
+  return (
+    <main>
+      <PlaceList places={places}/>
+    </main>
+  );
 };
 
 export default Getaways;
