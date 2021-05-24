@@ -4,6 +4,8 @@ import { getPlaces } from '../services/placesApi';
 export const useGetaways = () => {
     const [loading, setLoading] = useState(true)
     const [places, setPlaces] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [perPage, setPerPage] = useState(5);
 
     useEffect(() => {
         getPlaces()
@@ -11,5 +13,17 @@ export const useGetaways = () => {
             .finally(() => setLoading(false))
     }, []);
 
-    return { loading, places }
+    const indexEnd = currentPage * perPage;
+    const indexStart = indexEnd - perPage;
+    const currentPlaces = places.slice(indexStart, indexEnd)
+
+    const handleNextPage = (pageNumber) => {
+        setCurrentPage(pageNumber -1)
+    }
+
+    const handlePrevPage = (pageNumber) => {
+        setCurrentPage(pageNumber + 1)
+    }
+
+    return { loading, places, currentPage, currentPlaces, perPage, handlePrevPage, handleNextPage }
 }
