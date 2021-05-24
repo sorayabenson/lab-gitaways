@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { getPlaces } from '../services/placesApi';
+import React from 'react';
 import PlaceList from '../components/places/PlaceList';
+import Spinner from '../components/spinner/Spinner';
+import { useGetaways } from '../hooks/getaways';
 
 const Getaways = () => {
-  const [places, setPlaces] = useState([]);
+  const { loading, places } = useGetaways();
 
-  useEffect(() => {
-    getPlaces().then(setPlaces);
-  }, []);
+  if (loading) return <Spinner />
 
   return (
     <main>
