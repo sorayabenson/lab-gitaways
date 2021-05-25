@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './detail.module.css';
 
-const DetailItem = ({ name, slug, location, description, pricePerNight, image, maxGuests, petFriendly, pool, wifi }) => (
+const DetailItem = ({ name, location, description, pricePerNight, image, maxGuests, petFriendly, pool, wifi }) => (
  <section className={style.listing}>
      <h2>{name}</h2>
-     <h3>{slug}</h3>
      <h4>{location}</h4>
      <p>{description}</p>
      <p>{pricePerNight}</p>
@@ -19,7 +18,6 @@ const DetailItem = ({ name, slug, location, description, pricePerNight, image, m
 
 DetailItem.propTypes = {
     name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     pricePerNight: PropTypes.number.isRequired,

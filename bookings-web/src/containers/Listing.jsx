@@ -10,7 +10,7 @@ const Listing = () => {
     
     return (
         <main>
-            <DetailItem {...listing}/>
+            <DetailItem listing={listing}/>
         </main>
     )
 }

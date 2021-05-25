@@ -28,7 +28,6 @@ export const getListing = async (id) => {
     const result = await response.json();
     return ({
       name: result.name,
-      slug: result.slug,
       description: result.description,
       location: result.location,
       pricePerNight: result.price_per_night,

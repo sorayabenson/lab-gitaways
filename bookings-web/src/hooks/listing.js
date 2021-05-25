@@ -4,7 +4,7 @@ import { getListing } from '../services/placesApi';
 
 export const useListing = () => {
     const [loading, setLoading] = useState(true);
-    const [listing, setListing] = useState([]);
+    const [listing, setListing] = useState({});
 
     const { id } = useParams();
 
