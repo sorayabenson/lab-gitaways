@@ -5,7 +5,7 @@ export const useGetaways = () => {
     const [loading, setLoading] = useState(true)
     const [places, setPlaces] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [perPage, setPerPage] = useState(5);
+    const [perPage, setPerPage] = useState(10);
 
     useEffect(() => {
         getPlaces()

@@ -20,23 +20,21 @@ const Place = ({
     <Link 
       to={id}
       className={style.place}>
-      <img src={imageThumbnail} alt={name}/>
-      <section>
-        <header>
-          <div className={style.baseDetail}>
-            <h2>{name}</h2>
-            <p>${pricePerNight} per night</p>
-          </div>
+        <section className={style.front}>
+          <h2>{name}</h2>
+          <img src={imageThumbnail} alt={name}/>
+          <p>${pricePerNight} per night</p>
+        </section>
+        <section className={style.back}>
           <h3>{description}</h3>
           <h4>{location}</h4>
-        </header>
-        <div className={style.bonusDetail}>
-          <p>Max # of guests: {maxGuests}</p>
-          <p>{petFriendly ? 'Pet Friendly' : 'No Pets Allowed'}</p>
-          {pool ? <p>Has a Pool!</p> : null}
-          {wifi ? <p>Free Wifi</p> : null}
-        </div>
-      </section>
+          <div className={style.bonusDetail}>
+            <p>Max # of guests: {maxGuests}</p>
+            <p>{petFriendly ? 'Pet Friendly' : 'No Pets Allowed'}</p>
+            {pool ? <p>Has a Pool!</p> : null}
+            {wifi ? <p>Free Wifi</p> : null}
+          </div>
+        </section>
     </Link>
   );
 };
