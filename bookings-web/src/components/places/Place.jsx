@@ -26,13 +26,13 @@ const Place = ({
           <p>${pricePerNight} per night</p>
         </section>
         <section className={style.back}>
-          <h3>{description}</h3>
-          <h4>{location}</h4>
+          <h3>{location}</h3>
+          <h4>{description}</h4>
+          <p>Max # of guests: {maxGuests}</p>
           <div className={style.bonusDetail}>
-            <p>Max # of guests: {maxGuests}</p>
-            <p>{petFriendly ? 'Pet Friendly' : 'No Pets Allowed'}</p>
-            {pool ? <p>Has a Pool!</p> : null}
-            {wifi ? <p>Free Wifi</p> : null}
+            {pool ? <p>Pool!</p> : null}
+            <p>{petFriendly ? 'Yes Pets' : 'No Pets'}</p>
+            {wifi ? <p>Wifi!</p> : null}
           </div>
         </section>
     </Link>
