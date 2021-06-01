@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { getPlaces } from '../services/placesApi';
+import React from 'react';
+import Pagination from '../components/pagination/Pagination';
 import PlaceList from '../components/places/PlaceList';
+import Spinner from '../components/spinner/Spinner';
+import { useGetaways } from '../hooks/getaways';
 
 const Getaways = () => {
-  const [places, setPlaces] = useState([]);
+  const { loading, places, currentPlaces, currentPage, perPage, handlePrevPage, handleNextPage } = useGetaways();
 
-  useEffect(() => {
-    getPlaces().then(setPlaces);
-  }, []);
+  if (loading) return <Spinner />
 
-  return <PlaceList places={places} />;
+  return (
+    <main>
+      {/* <Pagination 
+        currentPage={currentPage}
+        perPage={perPage}
+        places={places}
+        clickPrevPage={handlePrevPage}
+        clickNextPage={handleNextPage}/> */}
+      <PlaceList places={currentPlaces}/>
+    </main>
+  );
 };
 
 export default Getaways;

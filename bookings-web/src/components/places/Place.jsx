@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import style from './places.module.css';
 
 const Place = ({
+  id,
   name,
   description,
   location,
@@ -14,22 +17,30 @@ const Place = ({
   wifi,
 }) => {
   return (
-    <ul>
-      <li>{name}</li>
-      <li>{description}</li>
-      <li>{location}</li>
-      <li>{pricePerNight}</li>
-      <li>{image}</li>
-      <li>{imageThumbnail}</li>
-      <li>{maxGuests}</li>
-      <li>{petFriendly ? 'Pet Friendly' : 'No Pets Allowed'}</li>
-      {pool ? <li>Has a Pool!</li> : null}
-      {wifi ? <li>Free Wifi</li> : null}
-    </ul>
+    <Link 
+      to={id}
+      className={style.place}>
+        <section className={style.front}>
+          <h2>{name}</h2>
+          <img src={imageThumbnail} alt={name}/>
+          <p>${pricePerNight} per night</p>
+        </section>
+        <section className={style.back}>
+          <h3>{location}</h3>
+          <h4>{description}</h4>
+          <p>Max # of guests: {maxGuests}</p>
+          <div className={style.bonusDetail}>
+            {pool ? <p>Pool!</p> : null}
+            <p>{petFriendly ? 'Yes Pets' : 'No Pets'}</p>
+            {wifi ? <p>Wifi!</p> : null}
+          </div>
+        </section>
+    </Link>
   );
 };
 
 Place.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
